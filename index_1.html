@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skyline Weather</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style_1.css" />
+</head>
+<body data-theme="clear-day">
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <main class="app">
+    <header class="topbar">
+      <h1 class="logo">Sky<span>line</span></h1>
+
+      <form id="searchForm" class="search" autocomplete="off">
+        <input id="searchInput" type="text" placeholder="Search for a city..." aria-label="Search city" />
+        <button type="submit" class="icon-btn" aria-label="Search">🔍</button>
+        <ul id="suggestions" class="suggestions hidden"></ul>
+      </form>
+
+      <div class="actions">
+        <button id="geoBtn" class="icon-btn" title="Use my location" aria-label="Use my location">📍</button>
+        <button id="unitBtn" class="unit-btn" title="Switch units">°C</button>
+      </div>
+    </header>
+
+    <div id="status" class="status hidden"></div>
+
+    <section id="content" class="content hidden">
+      <!-- Current weather -->
+      <article class="card hero">
+        <div class="hero-left">
+          <p class="city" id="city">—</p>
+          <p class="date" id="date">—</p>
+          <div class="temp-row">
+            <span class="temp" id="temp">--</span>
+          </div>
+          <p class="condition" id="condition">—</p>
+          <p class="feels" id="feels">—</p>
+        </div>
+        <div class="hero-right">
+          <div class="big-icon" id="bigIcon">☀️</div>
+        </div>
+      </article>
+
+      <!-- Stats -->
+      <section class="stats">
+        <div class="card stat"><span class="stat-icon">💧</span><p class="stat-label">Humidity</p><p class="stat-value" id="humidity">--</p></div>
+        <div class="card stat"><span class="stat-icon">💨</span><p class="stat-label">Wind</p><p class="stat-value" id="wind">--</p></div>
+        <div class="card stat"><span class="stat-icon">🧭</span><p class="stat-label">Pressure</p><p class="stat-value" id="pressure">--</p></div>
+        <div class="card stat"><span class="stat-icon">🌧️</span><p class="stat-label">Rain chance</p><p class="stat-value" id="rain">--</p></div>
+      </section>
+
+      <!-- Hourly -->
+      <section class="card">
+        <h2 class="section-title">Next 24 hours</h2>
+        <div class="hourly" id="hourly"></div>
+      </section>
+
+      <!-- Daily -->
+      <section class="card">
+        <h2 class="section-title">7-day forecast</h2>
+        <ul class="daily" id="daily"></ul>
+      </section>
+    </section>
+
+    <footer class="footer">Data by <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a></footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
